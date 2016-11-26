@@ -1,0 +1,45 @@
+<h1 align="center">LISTA DEGLI STUDENTI</h1>
+
+
+
+
+<style>
+.tabella,td{
+    border: 1px solid;
+    padding: 2px;
+    spacing:5px ;
+}
+
+
+</style>
+
+
+
+<div class="tabella">
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Matricola</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.Nome %></td>
+        <td><%= student.Cognome %></td>
+        <td><%= student.Matricola %></td>
+        <td><%= link_to 'Vedi', student %></td></td>
+        <td><%= link_to 'Modifica', edit_student_path(student) %></td></td>
+        <td><%= link_to 'Elimina', student, method: :delete, data: { confirm: 'Are you sure?' } %></td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Student', new_student_path %>
